@@ -1,0 +1,14 @@
+﻿@model UserIdentityPr.ViewModels.UserRoleViewModel
+
+@{ 
+    ViewBag.Title = "添加用戶到角色";
+}
+
+<form asp-action="AddUserToRole" method="post">
+    <input type="hidden" name="roleId" value="@Model.RoleId" />
+    <select class="form-control" asp-for="UserId" asp-items="@(new SelectList(Model.Users, "Id", "UserName"))">
+        <option></option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">確定</button>
+</form>
